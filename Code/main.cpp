@@ -107,7 +107,7 @@ void indexList::searchIndex(indexList ind, int indexCount)
             }
 int main()
 {
-    int icount=-1;
+    int icount=-1, ch;
     string i,j;
     fstream fi;
     fi.open("student.txt", ios::in|ios::out);
@@ -123,9 +123,20 @@ int main()
     LinkedList ll;
     ll.insert_list(s,icount);
     ll.create_index();
-    cout<<"\nEnter the USN:";
-    cin>>i;
-    indexList indexed(i);
-    indexed.searchIndex(indexed, icount);
+    system("clear");
+    while(1)
+    {
+        cout<<"\nEnter the USN:";
+        cin>>i;
+        indexList indexed(i);
+        indexed.searchIndex(indexed, icount);
+        cout<<"\nWant to continue?Press 1 to continue, 0 to exit:";
+        cin>>ch;
+        if(ch!=1)
+        {
+            cout<<"\nBye!";
+            return 0;
+        }
+    }
     return 0;
 }
